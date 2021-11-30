@@ -1,0 +1,82 @@
+Instructions to run.
+
+Adding Users offline to SSH Server without manual work.
+Run the server in registration mode.
+1. python3 sshserver.py 33333
+  Enter input as prompted
+Example:
+  
+  >> itachi
+  >> amaterasu_susano
+  >> * 
+
+Running SSH Server
+1. cd to Server directory and run
+>> python3 sshserver.py 33333
+
+2. cd to Client and run
+>> python3 ssh_client.py
+
+You will be prompted by the SSH Client($) to connect to the server.
+
+3. Connect to ssh server and do key exchange
+$ ssh 33333 itachi
+<Enter password in next line (amaterasu_susano)>
+
+If passphrase is correct, you will be succesfully authenticated by server and receive public key.
+And Session keys will then be exchanged.
+You will be prompted to the SSH shell.
+Now you can try the following functions.
+
+4. SSH> listfiles 
+
+Output : out.txt
+playground
+serverkeys
+src
+sshserver.py
+UserCredentials
+vendor
+
+5. SSH> pwd 
+output : varies with device but defaults to the path of the Server folder.
+
+6. SSH> chgdir vendor
+output : NO OUTPUT.
+
+Lets confirm that the directory did indeed change.
+7.  SSH> listfiles
+Output : out.txt
+party
+second
+
+Testing mv command. In the vendor directory, we have two folders, party and second. party has a file hello.txt
+8. SSH> mv hello.txt party second
+Output: hello.txt moved from party to second.
+
+Testing cp command. In the vendor directory, we have two folders, party and second. party has a file hello.txt
+9. SSH> cp hello.txt second party
+Output: hello.txt is copied to party 
+
+10. SSH> chgdir ..
+Output: We are back to Server directory.
+
+11. SSH> listfiles
+Output : out.txt
+playground
+serverkeys
+src
+sshserver.py
+UserCredentials
+vendor
+
+12. If you perform an unsupported command, you will simply get a NOK in the console.
+
+Finally,
+13. SSH> logout
+quit the client pro cess.
+
+Server is now ready to accept new clients.
+
+I have found no bugs/errors/ unexpected behavior in the project and the project has been tested will
+all possibilities to my knowledge.
