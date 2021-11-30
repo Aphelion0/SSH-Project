@@ -1,4 +1,4 @@
-#Instructions to run.
+Instructions to run.
 
 Adding Users offline to SSH Server without manual work.
 Run the server in registration mode.
@@ -10,7 +10,7 @@ Example:
   >> amaterasu_susano
   >> * 
 
-#Running SSH Server
+Running SSH Server
 1. cd to Server directory and run
 >> python3 sshserver.py 33333
 
